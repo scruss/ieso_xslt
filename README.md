@@ -16,12 +16,21 @@ will help interested amateurs analyze power system data in the province.
 ### Generators Output and Capability Report ###
 
 As a start, the **GenOutputCapability_CSV.xsl** script outputs simple
-CSV for the hourly generation (in MWh) of each plant listed in the
-report. You can run it like this:
+CSV for the hourly generation, capacity, and capability (in MWh) of
+each plant listed in the report. You can run it like this:
 
     xsltproc GenOutputCapability_CSV.xsl PUB_GenOutputCapability.xml > data.csv
 
 It is XSLT 1.0, so should run on almost any processor.
+
+#### Notes
+
+1. The timestamp appears to be EST, and refers to the *end* of the
+   period. Use of a time duration might be a more modern way of doing
+   it.
+
+2. This code has not been extensively tested. I'm particularly dubious
+   of the capacity and capability selection code.
 
 ## Author ##
 
@@ -33,7 +42,6 @@ WTFPL. (Srsly)
 
 ## Todo ##
 
-* GenOutputCapability_CSV: Add capabilities and (for wind) forecasts.
 * [Variable Generation Forecast Summary Report](http://reports.ieso.ca/public/VGForecastSummary/PUB_VGForecastSummary.xml): convert this to CSV, as it has useful forecast analysis for wind power.
 
 ## Caution ##
